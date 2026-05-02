@@ -283,7 +283,6 @@ body {
     perspective: 1000px;
 }
 
-/* BASE STYLE */
 .flip-card-front,
 .flip-card-back {
     width: 380px;
@@ -305,7 +304,6 @@ body {
     box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
 }
 
-/* 🎨 CARD 1 – BLUE CYBER */
 .flip-card:nth-of-type(1) .flip-card-front,
 .flip-card:nth-of-type(1) .flip-card-back {
     background: linear-gradient(
@@ -317,7 +315,6 @@ body {
     );
 }
 
-/* 🎨 CARD 2 – PURPLE FUTURE */
 .flip-card:nth-of-type(2) .flip-card-front,
 .flip-card:nth-of-type(2) .flip-card-back {
     background: linear-gradient(
@@ -329,7 +326,6 @@ body {
     );
 }
 
-/* 🎨 CARD 3 – GREEN TECH */
 .flip-card:nth-of-type(3) .flip-card-front,
 .flip-card:nth-of-type(3) .flip-card-back {
     background: linear-gradient(
@@ -341,7 +337,6 @@ body {
     );
 }
 
-/* FRONT / BACK */
 .flip-card-front {
     transform: rotateY(0deg);
 }
@@ -353,7 +348,6 @@ body {
     transform: rotateY(180deg);
 }
 
-/* DARK OVERLAY */
 .flip-card-front::after,
 .flip-card-back::after {
     content: "";
@@ -362,7 +356,6 @@ body {
     background: rgba(0, 0, 0, 0.45);
 }
 
-/* CONTENT */
 .flip-card-front .inner,
 .flip-card-back .inner {
     width: 100%;
@@ -384,7 +377,6 @@ body {
     line-height: 26px;
 }
 
-/* FLIP */
 .flip-card:hover .flip-card-front {
     transform: rotateY(-180deg);
 }
@@ -393,7 +385,6 @@ body {
     transform: rotateY(0deg);
 }
 
-/* 🌊 ANIMATION */
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
