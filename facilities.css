@@ -1,15 +1,35 @@
-
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', sans-serif;
+  
 }
 
 body {
+  min-height: 100vh;
   color: white;
   overflow-x: hidden;
+  opacity: 0;
+    animation: fadeInPage 1s ease forwards;
 }
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 .bg {
   position: fixed;
@@ -369,4 +389,13 @@ body::after {
 
   opacity: 0.5;
   border-radius: 10px;
+}
+
+.navbar a,
+.navbar a:link,
+.navbar a:visited,
+.navbar a:hover,
+.navbar a:active {
+  text-decoration: none !important;
+  color: white !important;
 }
