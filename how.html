@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Learning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="how.css">
+</head>
+<body>
+
+<div class="cursor"></div>
+
+<div class="bg"></div>
+<div class="grid-overlay"></div>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="main-blob"></div>
+
+<div class="progress-bar">
+  <div class="progress"></div>
+</div>
+
+<div class="navbar">
+  <div class="logo">SMART 2040</div>
+  <ul class="nav-links">
+    <li><a href="#">Home ▾</a></li>
+    <li><a href="#">How Smart Learning ▾</a></li>
+    <li><a href="#">Facilities ▾</a></li>
+    <li><a href="#">About Us ▾</a></li>
+  </ul>
+</div>
+
+<div class="container">
+
+  <section class="scene">
+    <div class="scene-content">
+      <div class="text">
+        <div class="line"></div>
+        <h1 class="typing">It Begins With You</h1>
+        <p>AI understands your behavior, pace, and potential.</p>
+      </div>
+      <div class="visual">AI ANALYSIS</div>
+    </div>
+  </section>
+
+  <section class="scene">
+    <div class="scene-content">
+      <div class="text">
+        <div class="line"></div>
+        <h1>Personalized Learning</h1>
+        <p>Your journey adapts dynamically in real-time.</p>
+      </div>
+      <div class="visual">ADAPTIVE SYSTEM</div>
+    </div>
+  </section>
+
+  <section class="scene">
+    <div class="scene-content">
+      <div class="text">
+        <div class="line"></div>
+        <h1>Immersive Experience</h1>
+        <p>You don’t study concepts — you experience them.</p>
+      </div>
+      <div class="visual">VR SIMULATION</div>
+    </div>
+  </section>
+
+  <section class="scene">
+    <div class="scene-content">
+      <div class="text">
+        <div class="line"></div>
+        <h1>You Evolve</h1>
+        <p>This is transformation.</p>
+      </div>
+      <div class="visual">EVOLUTION TRACK</div>
+    </div>
+  </section>
+
+</div>
+
+<section class="demo-section">
+  <h1 class="demo-title">Experience It Live</h1>
+
+  <div class="demo-box">
+    <div class="demo-screen">
+      <p class="demo-text">Analyzing Student...</p>
+    </div>
+
+    <div class="demo-info">
+      <div class="info-item">Brain Activity: <span id="brain">0%</span></div>
+      <div class="info-item">Focus Level: <span id="focus">0%</span></div>
+      <div class="info-item">Adaptation Speed: <span id="adapt">0%</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <h1 class="glow-text">Step Into 2040</h1>
+  <div class="cta-box">
+    <p>The future isn’t coming. It’s already here.</p>
+  </div>
+  <a href="contact.html">
+  <button class="cta-btn">Join Now</button>
+  </a>
+</section>
+
+<script>
+const container = document.querySelector('.container');
+const progress = document.querySelector('.progress');
+const scenes = document.querySelectorAll('.scene');
+
+container.addEventListener('scroll', () => {
+  const scrollTop = container.scrollTop;
+  const height = container.scrollHeight - container.clientHeight;
+  progress.style.height = (scrollTop / height) * 100 + "%";
+
+  scenes.forEach(scene => {
+    const rect = scene.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.7) {
+      scene.classList.add('active');
+    }
+  });
+});
+
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+let mouseX = 0, mouseY = 0;
+let blobX = 0, blobY = 0;
+
+document.addEventListener("mousemove", (e) => {
+  mouseX = (e.clientX - window.innerWidth/2) / 60;
+  mouseY = (e.clientY - window.innerHeight/2) / 60;
+});
+
+function animateBlob() {
+  blobX += (mouseX - blobX) * 0.05;
+  blobY += (mouseY - blobY) * 0.05;
+
+  document.querySelector(".main-blob").style.transform =
+    `translate(-50%, -50%) translate(${blobX}px, ${blobY}px)`;
+
+  requestAnimationFrame(animateBlob);
+}
+animateBlob();
+
+const demoSection = document.querySelector(".demo-section");
+
+const animateDemo = () => {
+  let brain = 0, focus = 0, adapt = 0;
+
+  const update = () => {
+    if (brain < 92) brain += 1;
+    if (focus < 87) focus += 1;
+    if (adapt < 95) adapt += 1;
+
+    document.getElementById("brain").innerText = brain + "%";
+    document.getElementById("focus").innerText = focus + "%";
+    document.getElementById("adapt").innerText = adapt + "%";
+
+    if (brain < 92 || focus < 87 || adapt < 95) {
+      requestAnimationFrame(update);
+    } else {
+      document.querySelector(".demo-text").innerText = "Optimization Complete";
+    }
+  };
+
+  update();
+};
+
+const observer = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    animateDemo();
+    observer.disconnect();
+  }
+}, { threshold: 0.5 });
+
+observer.observe(demoSection);
+</script>
+
+</body>
+</html>

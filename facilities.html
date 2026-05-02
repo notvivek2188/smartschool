@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Facilities | Smart School 2040</title>
+  <link rel="stylesheet" href="facilities.css">
+</head>
+<body>
+
+  <div class="bg"></div>
+
+  <nav class="navbar">
+    <div class="logo">SMART2040</div>
+    <ul>
+      <li><a href="index.html">Home ▾</a></li>
+  <li><a href="how.html">How Smart Learning ▾</a></li>
+  <li><a href="facilities.html">Facilities ▾</a></li>
+  <li><a href="about.html">About Us ▾</a></li>
+    </ul>
+  </nav>
+
+<section class="features-heading">
+  <div class="glass-heading">
+    <h2>What Do We Provide?</h2>
+    <p>Redefining education through innovation, technology, and holistic growth.</p>
+  </div>
+</section>
+
+
+  <section class="story">
+  <div class="story-content">
+    <h2>AI-Powered Classrooms</h2>
+    <p>Adaptive learning systems that personalize education in real-time.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="story">
+  <div class="story-content">
+    <h2>Smart Laboratories</h2>
+    <p>Hands-on innovation with AR, VR, and real-world simulations.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="story">
+  <div class="story-content">
+    <h2>Sports & Wellness</h2>
+    <p>Technology-driven performance tracking and holistic development.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="story">
+  <div class="story-content">
+    <h2>Innovation Hub</h2>
+    <p>Where ideas turn into startups and future-ready solutions.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc src="https://lottie.host/45096fd3-78a0-4617-9418-faac9491420c/BSK2f0IR2P.lottie" id="lottie" autoplay loop></dotlottie-wc>
+
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc src="https://lottie.host/ba1aa4bc-0451-4f11-9c32-110bcb6a0352/hwm9eOlelN.lottie" id="lottie2" autoplay loop></dotlottie-wc>
+  
+
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc src="https://lottie.host/38cf185d-0015-4bba-9a46-fac2e48ffd21/s0LV85wH5M.lottie" id="lottie3" autoplay loop></dotlottie-wc>
+
+
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc src="https://lottie.host/ae32c4c6-d333-4c59-97dd-6a4d57c42e4e/sKDXTStX77.lottie" id="lottie4" autoplay loop></dotlottie-wc>
+
+
+  <canvas id="particles"></canvas>
+  <script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 80; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 2,
+    speedX: 0.3 + Math.random() * 0.5,
+    speedY: -0.3 - Math.random() * 0.5
+  });
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "rgba(0,255,255,0.7)";
+
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+
+    p.x += p.speedX;
+    p.y += p.speedY;
+
+    if (p.x > canvas.width || p.y < 0) {
+      p.x = Math.random() * canvas.width;
+      p.y = canvas.height;
+    }
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+const stories = document.querySelectorAll(".story");
+
+function revealOnScroll() {
+  const triggerBottom = window.innerHeight * 0.9; // was 0.8
+
+  stories.forEach(section => {
+    const boxTop = section.getBoundingClientRect().top;
+
+    if (boxTop < triggerBottom) {
+      section.classList.add("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+</script>
+
+
+
+<section class="final-action">
+  <div class="action-container">
+    
+    <div class="glass-text">
+      <h2>Don’t Miss the Opportunity</h2>
+    </div>
+
+    <button class="contact-btn">Contact Us</button>
+
+  </div>
+</section>
+
+</body>
+</html>
