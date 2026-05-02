@@ -7,9 +7,22 @@
   }
 
   body {
-  min-height: 200vh;   
+  min-height: 300vh;   
   overflow-x: hidden;  
   color: white;
+  opacity: 0;
+    animation: fadeInPage 1s ease forwards;
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* slight lift = premium feel */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
   .bg {
@@ -91,7 +104,7 @@
 
   .content {
     position: absolute;
-    top: 50%;
+    top: 18%;
     left: 15%; 
     transform: translateY(-50%);
     text-align: left;
@@ -194,7 +207,7 @@
 
   .quote {
     position: absolute;
-    bottom: 5%;
+    top: 700px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -237,7 +250,7 @@
 
 .features {
   position: absolute;
-  top: 102%;
+  top: 36%;
   left: 50%;
   transform: translateX(-50%);
 
@@ -316,7 +329,7 @@
 
 #lottie2 {
   position: absolute;
-    top: 1150px;
+    top: 1250px;
     left: 100px;
     width: 588px;
     height: 500px;
@@ -325,7 +338,7 @@
 
 .cta {
   position: absolute;
-  top: 165%;           
+  top: 60%;           
   right: 15%;
   width: 380px;
 
@@ -364,4 +377,13 @@
   background: #00eaff;
   color: black;
   box-shadow: 0 0 20px #00eaff;
+}
+
+.navbar a,
+.navbar a:link,
+.navbar a:visited,
+.navbar a:hover,
+.navbar a:active {
+  text-decoration: none !important;
+  color: white !important;
 }
